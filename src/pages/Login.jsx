@@ -29,7 +29,7 @@ const Login = ({onLogin}) => {
         // API call with CORS fix
         try {
             const response = await axios.post(
-                "https://e-commerce-food-backend.onrender.com/login", data)
+                "/api/login", data)
                 console.log(response.data)
                 alert(response.data.message)
                 onLogin()
