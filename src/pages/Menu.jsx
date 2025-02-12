@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
 
+const API_URL = process.env.NODE_ENV === "development"
+  ? "http://localhost:4000"
+  : "https://e-commerce-food-backend.onrender.com";
+
 const Menu = () => {
   const [menus, setMenus] = useState([]);  
   const [loading, setLoading] = useState(true);  
@@ -8,7 +12,7 @@ const Menu = () => {
 
   // Fetch data from backend
   useEffect(() => {
-    fetch('https://e-commerce-food-backend.onrender.com/menus') 
+    fetch(`${API_URL}/menus`) 
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch menu items');
