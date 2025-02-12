@@ -29,16 +29,16 @@ const Login = ({onLogin}) => {
         // API call with CORS fix
         try {
             const response = await axios.post(
-                "/https://e-commerce-food-backend.onrender.com/login", data)
+                "https://e-commerce-food-backend.onrender.com/login", data)
 
                 console.log("Response:", response.data);                   
-                if (response.data.message) {
+                if (response.data.message === "Login successful") {
                     alert(response.data.message);
+                    onLogin();
+                    navigate("/menus");
                 } else {
-                    alert("Unexpected response from server.");
-                }
-                onLogin()
-                navigate('/menus')
+                    setErrorMessage(response.data.message || "Unexpected response from server.");
+                }                
 
         } catch (error) {
             console.error("Login Error:", error);
