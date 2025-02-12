@@ -8,7 +8,7 @@ const Menu = () => {
 
   // Fetch data from backend
   useEffect(() => {
-    fetch('api/menus') 
+    fetch('https://e-commerce-food-backend.onrender.com/menus') 
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch menu items');
