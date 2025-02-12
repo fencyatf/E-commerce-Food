@@ -29,17 +29,26 @@ const Login = ({onLogin}) => {
         // API call with CORS fix
         try {
             const response = await axios.post(
-                "/api/login", data)
-                console.log(response.data)
-                alert(response.data.message)
+                "/https://e-commerce-food-backend.onrender.com/login", data)
+
+                console.log("Response:", response.data);                   
+                if (response.data.message) {
+                    alert(response.data.message);
+                } else {
+                    alert("Unexpected response from server.");
+                }
                 onLogin()
                 navigate('/menus')
 
-            } catch (error) {
-                setErrorMessage(error.message)
-                console.log(error)
+        } catch (error) {
+            console.error("Login Error:", error);
+    
+            if (error.response) {
+                setErrorMessage(error.response.data.message || "Login failed. Please try again.");
+            } else {
+                setErrorMessage("Network error. Please check your connection.");
             }
-    }
+        }
     
 
   return (
