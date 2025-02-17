@@ -1,6 +1,8 @@
 import React from "react";
 import { assets } from "../assets/assets";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 
 const Home = () => {
   return (
