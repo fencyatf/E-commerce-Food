@@ -1,5 +1,6 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { Button } from "react-bootstrap";
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
         <h1 className="foodkart display-4 text-center fw-bold">FOOD KART</h1>
         <p className="subtitle text-center px-md-5">
         Food is a universal language that connects people, cultures, and traditions. It brings joy, comfort, and a sense of belonging, whether through shared meals or exploring global cuisines. Food also reflects history and creativity, delighting the senses while nourishing the body. Embracing sustainable and mindful practices ensures its positive impact on health, communities, and the planet.
-        </p>
+        </p><Button href="/login" variant="primary">LOGIN</Button>
       </div>
     </div>
   );
